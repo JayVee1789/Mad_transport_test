@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MAD — Transport de marchandises en Île-de-France & national</title>
+  <meta name="description" content="MAD : fiabilité, réactivité, sécurité. Transport express, médical, charges lourdes, haute précision, transferts d’entreprise. Basés en Essonne (91), interventions Île-de-France, France & Europe." />
+  <meta name="theme-color" content="#0f172a" />
+  <style>
+    :root{
+      --bg:#0b1220;       /* fond foncé élégant */
+      --card:#111a2e;
+      --muted:#8aa0c5;
+      --text:#e6edf7;
+      --accent:#62D26F;   /* vert confiance */
+      --accent2:#4ab0ff;  /* bleu action */
+      --danger:#ff7a7a;
+      --radius:16px;
+      --shadow:0 10px 30px rgba(0,0,0,.25);
+    }
+    html,body{margin:0;padding:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Ubuntu,"Helvetica Neue",Arial,sans-serif;background:linear-gradient(180deg,#0b1220,#0a1327 35%,#09142c);color:var(--text);}
+    a{color:var(--accent2);text-decoration:none}
+    .container{max-width:1140px;margin:0 auto;padding:0 20px}
+    header{position:sticky;top:0;z-index:40;background:rgba(11,18,32,.75);backdrop-filter:saturate(140%) blur(8px);border-bottom:1px solid rgba(255,255,255,.06)}
+    .nav{display:flex;align-items:center;justify-content:space-between;height:70px}
+    .brand{display:flex;gap:12px;align-items:center}
+    .logo{width:38px;height:38px;border-radius:8px;background:conic-gradient(from 210deg,var(--accent),#a7f3d0 35%,#93c5fd 60%,var(--accent2) 85%);box-shadow:0 6px 18px rgba(98,210,111,.4)}
+    .brand b{letter-spacing:.4px}
+    nav a{margin:0 10px;color:#cbd5e1;font-weight:600}
+    .cta{display:inline-flex;gap:10px;align-items:center;background:linear-gradient(90deg,var(--accent),#86efac);color:#0b1220;padding:12px 16px;border-radius:12px;font-weight:800;box-shadow:var(--shadow)}
+    .cta.secondary{background:transparent;border:1px solid #264766;color:#e2e8f0}
+
+    /* HERO */
+    .hero{padding:84px 0 40px;position:relative;overflow:hidden}
+    .hero h1{font-size:clamp(32px,5vw,52px);line-height:1.08;margin:10px 0}
+    .hero p{color:var(--muted);font-size:18px;max-width:800px}
+    .btns{display:flex;gap:14px;flex-wrap:wrap;margin-top:22px}
+    .heroCards{margin-top:34px;display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+    .card{background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.06);padding:18px;border-radius:var(--radius);box-shadow:var(--shadow)}
+    .pill{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,.18);color:#93c5fd;padding:6px 10px;border-radius:999px;font-weight:700;background:rgba(13,39,77,.35)}
+
+    /* SECTIONS */
+    section{padding:64px 0;border-top:1px solid rgba(255,255,255,.06)}
+    h2{font-size:clamp(24px,3.4vw,34px);margin:0 0 12px}
+    .muted{color:var(--muted)}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+    .list{display:grid;gap:10px}
+
+    /* FEATURES */
+    .feature{display:flex;gap:14px;background:linear-gradient(0deg,rgba(23,32,58,.35),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.07);padding:16px;border-radius:16px}
+    .badge{min-width:34px;height:34px;display:grid;place-items:center;border-radius:10px;background:rgba(98,210,111,.12);color:#c7f9d4;border:1px solid rgba(98,210,111,.35);font-weight:800}
+
+    /* SERVICES */
+    .service{background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.08);padding:18px;border-radius:16px}
+
+    /* CONTACT */
+    form{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+    form .full{grid-column:1/-1}
+    label{display:block;font-weight:700;margin-bottom:6px}
+    input,select,textarea{width:100%;background:#0e1a30;border:1px solid #24344f;color:#e2e8f0;padding:12px;border-radius:12px}
+    textarea{min-height:120px}
+    .disclaimer{font-size:12px;color:#9fb1cf}
+
+    /* FOOTER */
+    footer{padding:42px 0;color:#9fb1cf}
+    .footerGrid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:18px}
+    .copyright{margin-top:20px;border-top:1px solid rgba(255,255,255,.06);padding-top:14px;text-align:center}
+
+    @media (max-width:900px){
+      .grid-3{grid-template-columns:1fr}
+      .grid-2{grid-template-columns:1fr}
+      .heroCards{grid-template-columns:1fr 1fr}
+      form{grid-template-columns:1fr}
+      .footerGrid{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <!-- HEADER -->
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <div>
+          <b>MAD</b><br />
+          <small class="muted">Transport de marchandises</small>
+        </div>
+      </div>
+      <nav>
+        <a href="#services">Services</a>
+        <a href="#atouts">Atouts</a>
+        <a href="#zones">Zone</a>
+        <a href="#contact">Contact</a>
+        <a class="cta" href="#devis">Demander un devis</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <span class="pill">Fiabilité • Réactivité • Sécurité</span>
+      <h1>Votre partenaire transport en Essonne (91), Île‑de‑France & au‑delà</h1>
+      <p>
+        Bienvenue chez MAD, expert du transport express, médical spécialisé, charges lourdes et haute précision. Interventions dans la journée ou sous 24/48&nbsp;h, suivi transparent et interlocuteur dédié.
+      </p>
+      <div class="btns">
+        <a class="cta" href="#devis">Obtenir un devis</a>
+        <a class="cta secondary" href="tel:+33XXXXXXXXX">Nous appeler</a>
+      </div>
+      <div class="heroCards">
+        <div class="card"><b>Express & messagerie</b><br><small class="muted">Colis & palettes, J&nbsp;+&nbsp;0 à J&nbsp;+&nbsp;2</small></div>
+        <div class="card"><b>Médical spécialisé</b><br><small class="muted">Matériel & dispositifs sensibles</small></div>
+        <div class="card"><b>Charges lourdes</b><br><small class="muted">Manutention & arrimage sécurisés</small></div>
+        <div class="card"><b>Haute précision</b><br><small class="muted">Photocopieurs, machines, fragile</small></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="container">
+      <h2>Nos services</h2>
+      <p class="muted">Acheminement ponctuel ou régulier, national et international selon vos besoins.</p>
+      <div class="grid-3">
+        <div class="service">
+          <h3>Transport express & messagerie</h3>
+          <ul class="list">
+            <li>Enlèvement rapide, livraison le jour même ou sous 24/48&nbsp;h</li>
+            <li>Colis, cartons, palettes</li>
+            <li>Traçabilité & preuves de livraison</li>
+          </ul>
+        </div>
+        <div class="service">
+          <h3>Transport médical spécialisé</h3>
+          <ul class="list">
+            <li>Dispositifs sensibles, urgences sanitaires</li>
+            <li>Manipulations maîtrisées, protections ad hoc</li>
+            <li>Conformité & hygiène</li>
+          </ul>
+        </div>
+        <div class="service">
+          <h3>Charges lourdes & volumineux</h3>
+          <ul class="list">
+            <li>Camions adaptés, moyens de levage selon besoin</li>
+            <li>Arrimage & calage sécurisés</li>
+            <li>Itinéraires & accès étudiés</li>
+          </ul>
+        </div>
+        <div class="service">
+          <h3>Haute précision & fragile</h3>
+          <ul class="list">
+            <li>Photocopieurs, machines industrielles, matériel fragile</li>
+            <li>Transport sans rupture</li>
+            <li>Protections & emballages adaptés</li>
+          </ul>
+        </div>
+        <div class="service">
+          <h3>Transfert d’entreprise</h3>
+          <ul class="list">
+            <li>Déménagement d’équipements techniques</li>
+            <li>Coordination site à site</li>
+            <li>Rapports de mission</li>
+          </ul>
+        </div>
+        <div class="service">
+          <h3>National & international</h3>
+          <ul class="list">
+            <li>Réseau France entière</li>
+            <li>Europe sur demande</li>
+            <li>Solutions régulières ou ponctuelles</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ATOUTS -->
+  <section id="atouts">
+    <div class="container">
+      <h2>Pourquoi MAD&nbsp;?</h2>
+      <div class="grid-2">
+        <div class="feature"><div class="badge">1</div><div><b>Solutions personnalisées</b><br><span class="muted">Analyse de vos délais, itinéraires et contraintes techniques.</span></div></div>
+        <div class="feature"><div class="badge">2</div><div><b>Flotte & équipements</b><br><span class="muted">Camions légers, porteurs, remorques et équipements spécialisés.</span></div></div>
+        <div class="feature"><div class="badge">3</div><div><b>Sécurité & manutention</b><br><span class="muted">Arrimage, protections adaptées et gestes maîtrisés.</span></div></div>
+        <div class="feature"><div class="badge">4</div><div><b>Couverture étendue</b><br><span class="muted">Essonne, Île‑de‑France, France entière et Europe.</span></div></div>
+        <div class="feature"><div class="badge">5</div><div><b>Suivi & accompagnement</b><br><span class="muted">Interlocuteur dédié, reporting et transparence.</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ZONES -->
+  <section id="zones">
+    <div class="container">
+      <h2>Zone d’intervention</h2>
+      <p class="muted">Basés en Essonne (91). Interventions sur le 91, toute l’Île‑de‑France, et sur l’ensemble du territoire selon vos besoins.</p>
+      <div class="card">
+        <b>Adresse du siège / dépôt :</b> <span id="addr">[à renseigner]</span><br>
+        <small class="muted">Possibilités de départs urgents depuis les zones industrielles franciliennes.</small>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEVIS / CONTACT -->
+  <section id="devis">
+    <div class="container">
+      <h2>Demander un devis</h2>
+      <p class="muted">Réponse rapide. Merci de préciser les caractéristiques de votre envoi.</p>
+      <form>
+        <div>
+          <label>Nom / Société</label>
+          <input type="text" placeholder="Votre entreprise" required>
+        </div>
+        <div>
+          <label>Email</label>
+          <input type="email" placeholder="vous@exemple.com" required>
+        </div>
+        <div>
+          <label>Téléphone</label>
+          <input type="tel" placeholder="+33 ..." required>
+        </div>
+        <div>
+          <label>Type de transport</label>
+          <select>
+            <option>Express & messagerie</option>
+            <option>Médical spécialisé</option>
+            <option>Charges lourdes</option>
+            <option>Haute précision</option>
+            <option>Transfert d’entreprise</option>
+            <option>Autre</option>
+          </select>
+        </div>
+        <div class="full">
+          <label>Détails de la mission</label>
+          <textarea placeholder="Volumes (colis/palettes), poids, dimensions, lieux d’enlèvement & livraison, délais souhaités, contraintes d’accès, équipements nécessaires…"></textarea>
+        </div>
+        <div>
+          <label>Date souhaitée</label>
+          <input type="date">
+        </div>
+        <div>
+          <label>Récurrence</label>
+          <select>
+            <option>Ponctuel</option>
+            <option>Hebdomadaire</option>
+            <option>Mensuel</option>
+          </select>
+        </div>
+        <div class="full">
+          <label>
+            <input type="checkbox" required>
+            J’accepte que mes données soient utilisées pour être recontacté(e). (RGPD)
+          </label>
+          <p class="disclaimer">Vos informations ne seront jamais vendues. Vous pouvez demander leur suppression à tout moment.</p>
+        </div>
+        <div class="full">
+          <button class="cta" type="submit">Envoyer la demande</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- CONTACT DIRECT -->
+  <section id="contact">
+    <div class="container">
+      <h2>Contact</h2>
+      <div class="grid-2">
+        <div class="card">
+          <b>Téléphone :</b> <a href="tel:+33XXXXXXXXX">+33&nbsp;X&nbsp;XX&nbsp;XX&nbsp;XX&nbsp;XX</a><br>
+          <b>Email :</b> <a href="mailto:contact@mad-transport.fr">contact@mad-transport.fr</a><br>
+          <b>Adresse :</b> <span>[à renseigner]</span>
+        </div>
+        <div class="card">
+          <b>Horaires :</b> <span>24/7 (à confirmer)</span><br>
+          <b>Numéro SIRET :</b> <span>[à renseigner]</span><br>
+          <b>Assurances :</b> <span>[à renseigner]</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container footerGrid">
+      <div>
+        <b>MAD</b><br>
+        <small>Transport de marchandises — Essonne (91)</small>
+        <p class="muted">Qualité & rigueur • Respect des délais • Transparence • Responsabilité</p>
+      </div>
+      <div>
+        <b>Légal</b>
+        <ul class="list">
+          <li><a href="#">Mentions légales</a></li>
+          <li><a href="#">Politique de confidentialité</a></li>
+          <li><a href="#">Cookies</a></li>
+        </ul>
+      </div>
+      <div>
+        <b>Réseaux</b>
+        <ul class="list">
+          <li><a href="#">LinkedIn</a></li>
+          <li><a href="#">Facebook</a></li>
+          <li><a href="#">X / Twitter</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container copyright">
+      © <span id="year"></span> MAD — Tous droits réservés.
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+
+  <!-- SEO / Schema.org -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "MAD",
+    "image": "",
+    "telephone": "+33XXXXXXXXX",
+    "email": "contact@mad-transport.fr",
+    "address": {"@type":"PostalAddress","streetAddress":"","addressLocality":"Essonne","addressRegion":"Île-de-France","postalCode":"","addressCountry":"FR"},
+    "areaServed": ["Essonne","Île-de-France","France","Europe"],
+    "url": "https://exemple-mad.fr",
+    "sameAs": ["https://www.linkedin.com/company/","https://www.facebook.com/"]
+  }
+  </script>
+</body>
+</html>
